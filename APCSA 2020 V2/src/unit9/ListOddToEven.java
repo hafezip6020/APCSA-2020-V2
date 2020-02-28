@@ -23,7 +23,7 @@ public class ListOddToEven
 			}
 		}
 		
-		for (int i = oddIndex; i<size; i++) {
+		for (int i = size; i > oddIndex; i--) {
 			if (ray.get(i) % 2 == 0) {
 				evenIndex = i+1;
 				break;
@@ -36,7 +36,7 @@ public class ListOddToEven
 		if (oddIndex == 0 || evenIndex == 0) {
 			return -1;
 		} else {
-			return distance;
+			return distance ;
 		}
 		
 	}
