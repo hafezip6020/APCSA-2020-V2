@@ -14,7 +14,7 @@ public class Card
 
   	//constructors
 		public Card() {
-			suit = "heart";
+			suit = "HEARTS";
 			face = 1;		
 		}
 

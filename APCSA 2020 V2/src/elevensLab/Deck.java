@@ -16,19 +16,42 @@ public class Deck {
 	
 	private List<Card> cards;
 	private int top;
+	Card one = new Card();
 
    //make a Deck constructor
+	
+	public Deck()
+	{
+		cards = new ArrayList<Card>();
+		top = 51;
+		String suit = "HEARTS";
+	   	for(int i = 0; i<4; i++) {
+	   		suit = SUITS[i];
+	   		for(int j = 1; j<14; j++) {
+	   			cards.add(new Card(suit,j));
+	   		}
+	   		}
+	   	
+	}
+	
    	//refer cards to new ArrayList
    	//set top to the top of the deck 51
-   	
+
    	//loop through all suits
    		//loop through all faces 1 to 13
    			//add a new TwentyOneCard to the deck
 
    
    //make a dealCard() method that returns the top card
-   
+   public Card dealCard() {
+	   top = top -1;
+	   return cards.get(top+1);
+   }
    //write a shuffle() method
+   public void shuffle() {
+	   Collections.shuffle(cards);
+	   top = 51;
+   }
    	//use Colletions.shuffle
    	//reset the top card 
 }
