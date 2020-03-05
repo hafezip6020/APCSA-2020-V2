@@ -8,14 +8,11 @@ import static java.lang.System.*;
 public class TriplesRunner
 {
    public static void main(String args[])
-   {
-	   Triples T = new Triples(110);
-	   System.out.println(T);
-	   
-	   
-	}
-}
+   { Triples T = new Triples(110);
+   System.out.println(T);}
+	 
 
+ }
 /*
 3 4 5
 5 12 13
@@ -34,4 +31,8 @@ public class TriplesRunner
 39 80 89
 48 55 73
 60 91 109
+<<<<<<< HEAD
 65 72 97*/
+=======
+65 72 97*/
+>>>>>>> branch 'master' of https://github.com/hafezip6020/APCSA-2020-V2
