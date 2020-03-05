@@ -13,6 +13,7 @@ public class DeckTesterAct4 {
 		String[] suits = {"blue", "red"};
 		int[] pointValues = {11, 12, 13};
 		Deck d = new Deck(ranks, suits, pointValues);
+		
 
 		System.out.println("**** Original Deck Methods ****");
 		System.out.println("  toString:\n" + d.toString());
@@ -32,6 +33,8 @@ public class DeckTesterAct4 {
 		System.out.println("  size: " + d.size());
 		System.out.println();
 		System.out.println();
+		
+		
 
 		System.out.println("**** Deal Remaining 5 Cards ****");
 		for (int i = 0; i < 5; i++) {

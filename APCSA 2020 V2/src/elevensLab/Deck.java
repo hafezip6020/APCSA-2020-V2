@@ -61,15 +61,16 @@ public class Deck {
    }
    
    public Card deal() {
-	  
+	  try {
 	   Card tmp = cards.get(top);
 	   cards.remove(top);
 	   top = top -1;
-	   if (top == -1) {
-		   
-	   }
-	   
 	   return tmp;
+	   }catch (Exception e) {
+	      System.out.println("Deck is empty");
+	    }
+	return null;
+	  
    }
    //write a shuffle() method
    public void shuffle() {
