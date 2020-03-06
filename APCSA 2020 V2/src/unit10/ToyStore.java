@@ -19,6 +19,16 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
+		toyList = new ArrayList<Toy>();
+		
+		String[] words = toys.split("\\W+");
+		for(int i = 0; i < words.length; i++) {
+			String t = words[i];
+			Toy x = new Toy(t);
+			if (toyList.indexOf(x) == -1) {
+				toyList.add(new Toy(t));
+			}
+		}
 	}
   
   	public Toy getThatToy( String nm )
