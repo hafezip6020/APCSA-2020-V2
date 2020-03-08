@@ -9,44 +9,85 @@ import java.util.ArrayList;
 import java.util.Collections;
 import static java.lang.System.*;
 
-public class ToyStore
+public class ToyStore1
 {
 	private ArrayList<Toy> toyList;
 
-	public ToyStore()
+	public ToyStore1()
 	{
+		toyList = new ArrayList<Toy>();
 	}
 
+	public ToyStore1(String toys) {
+		 loadToys(toys);
+	}
 	public void loadToys( String toys )
 	{
 		toyList = new ArrayList<Toy>();
-		
+		int c = 0;
 		String[] words = toys.split("\\W+");
 		for(int i = 0; i < words.length; i++) {
 			String t = words[i];
 			Toy x = new Toy(t);
-			if (toyList.indexOf(x) == -1) {
-				toyList.add(new Toy(t));
+			int indexOfX = getThatToyIndex(t);
+			if (indexOfX == -1) {
+				toyList.add(x);
+				toyList.get(c).setCount(1);
+				c = c + 1;
+			} else if (indexOfX != -1) {
+				int q =toyList.get(indexOfX).getCount();
+				toyList.get(indexOfX).setCount(q+1);
 			}
+		
 		}
 	}
   
   	public Toy getThatToy( String nm )
   	{
+  		for(int i = 0; i < toyList.size(); i++) {
+            if (toyList.get(i).getName().equals(nm)){
+                return toyList.get(i);
+            }
+        }
   		return null;
   	}
+  	
+  	public int getThatToyIndex( String nm )
+  	{
+  		for(int i = 0; i < toyList.size(); i++) {
+            if (toyList.get(i).getName().equals(nm)){
+                return i;
+            }
+        }
+  		return -1;
+  	}
+  	
   
   	public String getMostFrequentToy()
   	{
-  		return "";
+  		int mft = 0;
+  		int indexOfMft = 0;
+  		for (int i = 0; i < toyList.size(); i++) {
+  			if(toyList.get(i).getCount()>mft) {
+  				mft = toyList.get(i).getCount();
+  				indexOfMft = i;
+  			}
+  		}
+  		return toyList.get(indexOfMft).getName();
   	}  
   
   	public void sortToysByCount()
   	{
+  		Collections.sort(toyList, Collections.reverseOrder());
   	}  
   	  
+  	
 	public String toString()
 	{
-	   return "";
+	   return toyList + "";
 	}
+	
+	public String myName(){
+		System.out.println("Parsa Hafezi");
+		}
 }
