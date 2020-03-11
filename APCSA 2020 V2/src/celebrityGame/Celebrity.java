@@ -1,4 +1,6 @@
 package celebrityGame;
+
+
 /**
  * Celebrity base class for the Celebrity game.
  * @author cody.henrichsen
@@ -6,6 +8,8 @@ package celebrityGame;
  */
 public class Celebrity
 {
+	String clue;
+	String name;
 	/**
 	 * The clue to determine the celebrity
 	 */
@@ -13,15 +17,16 @@ public class Celebrity
 	/**
 	 * The answer or name of the celebrity.
 	 */
-	private ArrayList<Celebrity> celebGameList;
-	private Celebrity gameCelebrity; 
+	
 	/**
 	 * Creates a Celebrity instance with the supplied answer and clue
 	 * @param answer
 	 * @param clue
 	 */
-	public Celebrity(String answer, String clue)
+	public Celebrity(String answer, String hint)
 	{
+		name = answer;
+		clue = hint;
 	}
 
 	/**
@@ -30,7 +35,7 @@ public class Celebrity
 	 */
 	public String getClue()
 	{
-		return null;
+		return clue;
 	}
 
 	/**
@@ -39,16 +44,16 @@ public class Celebrity
 	 */
 	public String getAnswer()
 	{
-		return null;
+		return name;
 	}
 
 	/**
 	 * Updates the clue to the provided String.
 	 * @param clue The new clue.
 	 */
-	public void setClue(String clue)
+	public void setClue(String hint)
 	{
-		
+		clue = hint;
 	}
 
 	/**
@@ -57,7 +62,7 @@ public class Celebrity
 	 */
 	public void setAnswer(String answer)
 	{
-		
+		name = answer;
 	}
 	
 	/**
@@ -66,7 +71,7 @@ public class Celebrity
 	@Override
 	public String toString()
 	{
-		return null;
+		return name + " " + clue;
 	}
 	
 }

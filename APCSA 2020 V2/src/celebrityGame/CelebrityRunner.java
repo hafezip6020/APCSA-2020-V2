@@ -12,6 +12,7 @@ public class CelebrityRunner
 	 */
 	public static void main(String [] args)
 	{
-
+		CelebrityGame C = new CelebrityGame();
+		StartPanel a = new StartPanel(C);
 	}
 }

@@ -7,8 +7,12 @@ import java.util.ArrayList;
  * @author cody.henrichsen
  * @version 2.3 25/09/2018 refactored the prepareGame and play methods
  */
+
 public class CelebrityGame
 {
+	private ArrayList<Celebrity> celebGameList;
+	private Celebrity gameCelebrity;
+	private CelebrityFrame gameWindow;
 	/**
 	 * A reference to a Celebrity or subclass instance.
 	 */
@@ -26,6 +30,7 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
+		gameWindow = new CelebrityFrame(this);
 	}
 
 	/**
@@ -33,6 +38,8 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -55,6 +62,11 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
+		if (celebGameList != null && celebGameList.size() > 0)
+		{
+			this.gameCelebrity = celebGameList.get(0);
+			gameWindow.replaceScreen("GAME");
+		}
 		
 	}
 
@@ -70,6 +82,8 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
+		Celebrity C = new Celebrity(name, guess);
+		celebGameList.add(C);
 		
 	}
 
@@ -80,7 +94,12 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
-		return false;
+		String guess = name.trim();
+		if(guess.equals(gameCelebrity.getAnswer())) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	/**
@@ -92,7 +111,13 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return false;
+		String hint = clue.trim();
+		if(hint.equals(gameCelebrity.getClue())) {
+			return true;
+		}else {
+			return false;
+		}
+
 	}
 
 	/**
