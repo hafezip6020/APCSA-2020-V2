@@ -52,8 +52,19 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
+		if(guess.equalsIgnoreCase(gameCelebrity.getAnswer())){
+			celebGameList.remove(0);
+			if(celebGameList.size() > 0) {
+			this.gameCelebrity = celebGameList.get(0);
+			} else {
+				celebGameList.add(new Celebrity(" ", " "));
+			}
+		return true;
+		}else {
 		return false;
+		}
 	}
+	
 
 	/**
 	 * Asserts that the list is initialized and contains at least one Celebrity.
@@ -82,8 +93,7 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		Celebrity C = new Celebrity(name, guess);
-		celebGameList.add(C);
+		celebGameList.add(new Celebrity(name, guess));
 		
 	}
 
@@ -95,7 +105,7 @@ public class CelebrityGame
 	public boolean validateCelebrity(String name)
 	{
 		String guess = name.trim();
-		if(guess.equals(gameCelebrity.getAnswer())) {
+		if(guess.length()>=4) {
 			return true;
 		}else {
 			return false;
@@ -112,7 +122,7 @@ public class CelebrityGame
 	public boolean validateClue(String clue, String type)
 	{
 		String hint = clue.trim();
-		if(hint.equals(gameCelebrity.getClue())) {
+		if(hint.length()>=10) {
 			return true;
 		}else {
 			return false;
@@ -127,7 +137,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -138,7 +148,7 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
-		return null;
+		return gameCelebrity.getClue();
 	}
 
 	/**
@@ -149,6 +159,6 @@ public class CelebrityGame
 	 */
 	public String sendAnswer()
 	{
-		return null;
+		return gameCelebrity.getAnswer();
 	}
 }

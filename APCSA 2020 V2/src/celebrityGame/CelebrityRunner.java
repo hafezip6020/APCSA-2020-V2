@@ -13,6 +13,7 @@ public class CelebrityRunner
 	public static void main(String [] args)
 	{
 		CelebrityGame C = new CelebrityGame();
+		C.prepareGame();
 		StartPanel a = new StartPanel(C);
 	}
 }
