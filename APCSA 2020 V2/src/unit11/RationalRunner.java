@@ -68,3 +68,43 @@ public class RationalRunner
 		
 	}
 }
+/*test = 1/1
+newOne = 3/4
+test.equals(newOne) = false
+
+
+newOne after test.clone() = 1/1
+test.equals(newOne) = true
+1/2.equals(2/3) = false
+2/3.equals(4/6) = true
+
+
+rOne = 1/2
+rTwo = 2/3
+rOne.compareTo(rTwo) = -1
+rTwo.compareTo(rOne) = 1
+
+
+rOne.add(rTwo) = 7/6
+
+
+1/2.add(1/3) = 5/6
+
+
+4/10.add(3/5) = 1/1
+
+
+2/10.add(3/6) = 7/10
+
+
+1/4.equals(2/8) = true
+
+
+1/4.add(2/8) = 1/2
+
+
+1/6.equals(2/8) = false
+
+
+1/6.add(2/8) = 5/12
+*/

@@ -79,7 +79,7 @@ class Rational implements Comparable<Rational>
 
 	public Object clone ()
 	{
-		return "";
+		return new Rational(getNumerator(), getDenominator());
 	}
 
 
@@ -90,22 +90,31 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj)
 	{
-
+		if((double)num / den == (double)((Rational) obj).getNumerator()/((Rational)obj).getDenominator()) {
+			return true;
+		}
 
 		return false;
+		
 	}
 
 	public int compareTo(Rational other)
 	{
-
+		if((double)num / den > (double)other.getNumerator()/other.getDenominator()){
+			return 1;
+		}
 
 		return -1;
+
+		
 	}
 
 
 
 	
 	//write  toString() method
-	
+	public String toString() {
+		return num + "/" + den;
+	}
 	
 }
