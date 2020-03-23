@@ -22,4 +22,7 @@ public class ToyStoreRunner
 		System.out.println( "max == " + sto.getMostFrequentToy() );	
 	}
 }
+<<<<<<< HEAD
 //train train teddy teddy ball ball
+=======
+>>>>>>> branch 'master' of https://github.com/hafezip6020/APCSA-2020-V2

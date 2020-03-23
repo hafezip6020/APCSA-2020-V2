@@ -90,4 +90,8 @@ public class ToyStore1
 	public String myName(){
 		System.out.println("Parsa Hafezi");
 		}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/hafezip6020/APCSA-2020-V2
