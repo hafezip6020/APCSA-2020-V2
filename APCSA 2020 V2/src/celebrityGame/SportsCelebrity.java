@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author cody.henrichsen
  * @version 1.0 15/09/2018
  */
-public class LiteratureCelebrity extends Celebrity
+public class SportsCelebrity extends Celebrity
 {
 	/**
 	 * The list of clues for the Literature Celebrity. They can be titles of texts, important characters, settings, etc...s
@@ -18,13 +18,13 @@ public class LiteratureCelebrity extends Celebrity
 	 * @param answer The literature celebrity
 	 * @param clues Clues for the literature celebrity 
 	 */
-	public LiteratureCelebrity(String answer, String clues)
+	public SportsCelebrity(String answer, String clues)
 	{
 		super(answer, clues);
 		processClues();
 	}
 	
-	public LiteratureCelebrity(String answer, String clues, String form) {
+	public SportsCelebrity(String answer, String clues, String form) {
 		super(answer, clues);
 		type = form;
 		processClues();
@@ -65,7 +65,7 @@ public class LiteratureCelebrity extends Celebrity
 	@Override
 	public String toString()
 	{
-		String dsc = "This is the literature celebrity: " + getAnswer() + "\nThe clues are:\n";
+		String dsc = "This is the sports celebrity: " + getAnswer() + "\nThe clues are:\n";
 		
 		for (String word : super.getClue().split(","))
 		{

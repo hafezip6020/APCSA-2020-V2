@@ -30,6 +30,7 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
+		celebGameList = new ArrayList<Celebrity>();
 		gameWindow = new CelebrityFrame(this);
 	}
 
@@ -38,7 +39,6 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
-		celebGameList = new ArrayList<Celebrity>();
 		gameWindow.replaceScreen("START");
 	}
 
@@ -52,16 +52,16 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
-		if(guess.equalsIgnoreCase(gameCelebrity.getAnswer())){
+		if(guess.trim().equalsIgnoreCase(gameCelebrity.getAnswer())){
 			celebGameList.remove(0);
 			if(celebGameList.size() > 0) {
-			this.gameCelebrity = celebGameList.get(0);
+				gameCelebrity = celebGameList.get(0);
 			} else {
 				celebGameList.add(new Celebrity(" ", " "));
 			}
-		return true;
+			return true;
 		}else {
-		return false;
+			return false;
 		}
 	}
 	
@@ -73,8 +73,7 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-		if (celebGameList != null && celebGameList.size() > 0)
-		{
+		if (celebGameList != null && celebGameList.size() > 0) {
 			this.gameCelebrity = celebGameList.get(0);
 			gameWindow.replaceScreen("GAME");
 		}
@@ -93,8 +92,10 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		celebGameList.add(new Celebrity(name, guess));
-		
+		//celebGameList = new ArrayList<Celebrity>();
+		Celebrity active;
+		active = new Celebrity(name, guess);
+		celebGameList.add(active);
 	}
 
 	/**
@@ -122,12 +123,23 @@ public class CelebrityGame
 	public boolean validateClue(String clue, String type)
 	{
 		String hint = clue.trim();
-		if(hint.length()>=10) {
-			return true;
-		}else {
-			return false;
+		boolean ans = false;
+		if (hint.length() >= 10)
+			ans =  true;
+			
+		if (type.equalsIgnoreCase("literature")){
+			String[] temp = clue.split(",");
+			if (temp.length > 1){
+				ans =  true;
+			}
 		}
-
+	    if (type.equalsIgnoreCase("sports")) {
+	    	String[] temp = clue.split(",");
+			if (hint.length() >= 10 && temp.length > 1){
+				ans =  true;	
+		}
+		}
+	    return ans;
 	}
 
 	/**

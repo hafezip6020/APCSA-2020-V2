@@ -10,6 +10,7 @@ public class Celebrity
 {
 	String clue;
 	String name;
+	String type;
 	/**
 	 * The clue to determine the celebrity
 	 */
@@ -28,7 +29,12 @@ public class Celebrity
 		name = answer;
 		clue = hint;
 	}
-
+	public Celebrity(String answer, String hint, String form)
+	{
+		name = answer;
+		clue = hint;
+		type = form;
+	}
 	/**
 	 * Supplies the clue for the celebrity
 	 * @return
@@ -45,6 +51,11 @@ public class Celebrity
 	public String getAnswer()
 	{
 		return name;
+	}
+	
+	public String getType()
+	{
+		return type;
 	}
 
 	/**
@@ -65,13 +76,19 @@ public class Celebrity
 		name = answer;
 	}
 	
+	
+	public void setType(String form)
+	{
+		type = form;
+	}
+	
 	/**
 	 * Provides a String representation of the Celebrity.
 	 */
 	@Override
 	public String toString()
 	{
-		return name + " " + clue;
+		return name + " " + clue + " " + type;
 	}
 	
 }
